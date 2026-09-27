@@ -21,3 +21,8 @@ No se corrigen contradicciones de forma silenciosa. Cada decisión se toma con l
 - **DEC-015 — Resultados pendientes.** No se insertan números hasta completar tres semillas en Kaggle. Un benchmark de 10 épocas sólo estima costo.
 - **DEC-016 — GitHub.** GitHub CLI se autenticó mediante el flujo oficial. `sarah.vasquezmo@udlap.mx` fue confirmado como correo verificado antes del primer commit. El repositorio remoto quedó privado y no se solicitaron ni almacenaron tokens en texto.
 - **DEC-017 — Kaggle pendiente.** El 2026-09-26 la sesión del navegador no estaba autenticada en Kaggle. No se ejecutaron datos reales, benchmark ni entrenamiento y no se generaron métricas; la pantalla oficial de inicio de sesión quedó abierta para la usuaria.
+
+## 2026-09-27
+
+- **DEC-018 — Entrada Kaggle sin Internet.** La cuenta autenticada no tenía habilitado Internet para notebooks sin verificación telefónica. En lugar de mezclar datos o ejecutar descargas locales, se adjuntó el dataset Kaggle `thngdngvn/openneuro-ds004504` (3 GB), cuya raíz contiene `ds004504/participants.tsv` y `ds004504/derivatives/`. `00_prepare_features_kaggle.ipynb` usa esa entrada de solo lectura con `--skip-download`; el manifiesto y los SHA-256 de cada `.set` siguen siendo obligatorios.
+- **DEC-019 — Entorno Kaggle observado.** La imagen CPU fijada por Kaggle (`2026-06-30`) ya contiene la pila científica. Para evitar una instalación de red imposible, los notebooks añaden `src/` a `PYTHONPATH` y serializan las versiones efectivamente importadas. No se presenta como equivalencia a los pines solicitados: la divergencia queda registrada en el artefacto de entorno.
