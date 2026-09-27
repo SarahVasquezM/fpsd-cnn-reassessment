@@ -1,0 +1,37 @@
+name: week1_ad_cn
+feature_config: configs/features/paper95.yaml
+model_config: configs/models/fpsd_cnn_512.yaml
+split_file: splits/original_holdout.json
+label_mapping: {CN: 0, AD: 1}
+experiments:
+  forensic_test_selected:
+    checkpoint_selection: test_accuracy
+    disclosure: "Biased: the published test set is inspected every epoch and selects the checkpoint."
+  valid_subject_disjoint:
+    checkpoint_selection: validation_balanced_accuracy
+    validation_fraction_subjects: 0.2
+    validation_seed: 2026
+    evaluate_test_once: true
+training:
+  loss: cross_entropy
+  class_weights: null
+  optimizer: RMSprop
+  learning_rate: 0.0005
+  batch_size: 64
+  max_epochs: 100
+  benchmark_epochs: 10
+  train_shuffle: true
+  drop_last: false
+  seeds: [2026, 2027, 2028]
+  deterministic: true
+evaluation:
+  primary_unit: subject
+  subject_aggregation: mean_p_ad
+  threshold: 0.5
+  positive_class: AD
+published_accuracy_targets_percent: [88.21, 88.32, 88.36]
+kaggle:
+  session_budget_hours: 10
+  output_dir: /kaggle/working/week1_results
+  auto_github_sync: false
+  github_results_branch: kaggle/week1-results

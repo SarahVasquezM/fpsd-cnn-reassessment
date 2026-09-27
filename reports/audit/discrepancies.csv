@@ -1,0 +1,16 @@
+id,priority,topic,paper_or_readme,published_code_or_checkpoint,decision,status
+D01,critical,validation,"Described as LOSO/70-30","One fixed subject holdout","Call it fixed subject holdout; preserve published test",verified
+D02,critical,test_selection,"Test should be final","Test loader selects best checkpoint each epoch","Separate forensic_test_selected from valid_subject_disjoint",verified
+D03,critical,feature_count,"Five bands; 95 features","Six bands; 114 features; next stage requires 95","paper95 uses five article bands and records repair",verified
+D04,critical,architecture,"Conv1 512; about 141704 parameters","Source 128; checkpoint 512; reconstructed count 141732","Use 512 checkpoint-compatible model and enforce 141732",verified
+D05,high,window_duration,"Five-second windows","Events every 5 s but epochs 0..4 s","Use exact non-overlapping 5 s windows",verified
+D06,high,sampling_rate,"Derivatives documented at 500 Hz","Extractor resamples to 512 Hz","Preserve confirmed 500 Hz",verified
+D07,high,preprocessing,"Preprocessed derivative experiment","Filters 1-45 Hz and average rereferences again","Do not refilter/rereference/run ICA",verified
+D08,high,flat_order,"Ambiguous interpretation","Band loop outside channel order","Use band-major and export feature_index.tsv",verified
+D09,high,csv_headers,"Not documented","Writes no header; pandas consumes first row as header","Use explicit Parquet/CSV schemas",verified
+D10,high,drop_last,"Not documented","True for train and test","Always false",verified
+D11,high,seeds,"Not reported","No seeds fixed","Use 2026 2027 2028 across Python NumPy PyTorch CUDA DataLoader",verified
+D12,high,file_order,"Not documented","Unsorted os.listdir controls order","Always sort paths and preserve subject/window IDs",verified
+D13,high,gpu,"GPU timing implied","Training script never moves model/batches","Explicit device transfer and assertions",verified
+D14,high,evaluation_unit,"Subject framing; window sample counts","Evaluator works per window only","Primary subject metrics; secondary window metrics",verified
+D15,medium,published_accuracy,"88.21 / 88.32 / 88.36","No regenerable metric table","Compare all three; never tune toward them",verified

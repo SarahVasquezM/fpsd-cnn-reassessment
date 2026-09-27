@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fpsd-reassessment"
+version = "0.1.0"
+description = "Reproducible reassessment of FPSD-CNN on OpenNeuro ds004504"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Sarah Vasquez M", email = "sarah.vasquezmo@udlap.mx"}]
+dependencies = [
+  "numpy>=2.1,<3",
+  "scipy>=1.15,<2",
+  "pandas>=2.2,<3",
+  "scikit-learn>=1.6,<2",
+  "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+kaggle = [
+  "mne==1.13.2",
+  "pyarrow==25.0.1",
+  "psutil==7.0.0",
+  "matplotlib==3.10.3",
+  "seaborn==0.13.2",
+  "tqdm==4.67.1",
+  "openneuro-py==2026.9.1",
+]
+test = ["pytest==8.4.1", "torch"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

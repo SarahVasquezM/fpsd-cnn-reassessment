@@ -1,0 +1,15 @@
+# Installed only when absent or incompatible in Kaggle.
+# PyTorch is supplied by the Kaggle GPU image and is recorded at runtime.
+numpy==2.2.6
+scipy==1.15.3
+pandas==2.2.3
+scikit-learn==1.6.1
+mne==1.13.2
+pyarrow==25.0.1
+PyYAML==6.0.2
+psutil==7.0.0
+matplotlib==3.10.3
+seaborn==0.13.2
+tqdm==4.67.1
+openneuro-py==2026.9.1
+pytest==8.4.1

@@ -1,0 +1,49 @@
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.kaggle/
+
+# Python and notebook caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# EEG and other heavy scientific artefacts
+*.set
+*.fdt
+*.edf
+*.bdf
+*.vhdr
+*.vmrk
+*.eeg
+/data/
+/features/
+/checkpoints/
+/predictions/
+*.pth
+*.pt
+*.ckpt
+*.npz
+*.npy
+*.parquet
+*.zip
+
+# Kaggle working data and logs
+kaggle/input/
+kaggle/working/
+/week1_results/
+/fpsd_features/
+wandb/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/

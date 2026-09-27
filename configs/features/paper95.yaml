@@ -1,0 +1,33 @@
+name: paper95
+dataset: ds004504
+dataset_version: 1.0.9
+input_scope: derivatives
+task: eyesclosed
+groups: [A, C]
+channels: [Fp1, Fp2, F7, F3, Fz, F4, F8, T3, C3, Cz, C4, T4, T5, P3, Pz, P4, T6, O1, O2]
+window_seconds: 5.0
+overlap_seconds: 0.0
+preserve_sampling_rate: true
+expected_sampling_rate_hz: 500.0
+re_filter: false
+re_reference: false
+ica: false
+welch:
+  window: hann
+  n_fft: 256
+  n_per_seg: 256
+  n_overlap: 10
+  detrend: constant
+  fmin: 0.5
+  fmax: 45.0
+normalization: sum_bins_0p5_45_per_window_channel
+band_reduction: mean
+bands:
+  delta: [0.5, 4.0]
+  theta: [4.0, 8.0]
+  alpha: [8.0, 13.0]
+  beta: [13.0, 25.0]
+  gamma: [25.0, 45.0]
+band_intervals: "left-closed; right-open except gamma includes 45 Hz"
+tensor_layout: [window, channel, band]
+flat_order: band-major

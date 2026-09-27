@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this reproducibility package, cite this software and the original FPSD-CNN article."
+title: "FPSD-CNN reassessment"
+type: software
+version: 0.1.0
+date-released: 2026-09-26
+authors:
+  - family-names: "Vasquez M"
+    given-names: "Sarah"
+    email: "sarah.vasquezmo@udlap.mx"
+repository-code: "https://github.com/SarahVasquezM/fpsd-cnn-reassessment"
+preferred-citation:
+  type: article
+  title: "Enhanced EEG Classification for Alzheimer's Disease Using Flattened Power Spectral Density and CNN"
+  authors:
+    - family-names: "Li"
+      given-names: "Zhengji"
+  journal: "Neural Processing Letters"
+  year: 2026
+  doi: "10.1007/s11063-026-11850-5"

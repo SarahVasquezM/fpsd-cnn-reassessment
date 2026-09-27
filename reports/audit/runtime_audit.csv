@@ -1,0 +1,15 @@
+check,status,evidence
+sha256:1-data_processing/1-psd.py,pass,110de88e8dc1bfc63d9e0bab87737774ffe9bd87668a29b5846c2821a0e43399
+sha256:1-data_processing/2-fpsd-processing.py,pass,977edbf5e8544a3e2ed46e8990652a1b356fdcae7725c84985b40e99e5866356
+sha256:1-data_processing/3-Create-list.py,pass,225a69420ff033d4c01e28b64aadf9e128ee3a31167e3f575b244b4db4b47ede
+sha256:2-model/fpsd-cnn.py,pass,56530212c934baae660d16e7174927ee8d7c27857fdb90ada8cf83e5881b78fa
+sha256:model/AD-CN.pth,pass,b37a8197b8e59f077adbb0a52688d4438f1d97de332a626cc2ae09ffafd16817
+extractor_six_bands,pass,19×6=114
+next_stage_requires_95,pass,literal 95 guard
+source_conv1_128,pass,source differs from article/checkpoint
+test_used_for_selection,pass,test_loader passed as val_loader
+drop_last_true,pass,train and test loaders
+csv_has_no_header,pass,csv.writer rows only
+training_has_no_to_device,pass,training remains on CPU
+unsorted_files,pass,filesystem order controls labels/rows
+seeds_absent,pass,no deterministic seeds

@@ -1,0 +1,12 @@
+name: fpsd_cnn_512
+input_length: 95
+input_channels: 1
+conv1: {out_channels: 512, kernel_size: 3}
+activation: {name: StarReLU, shared_instance: true, initial_scale: 1.0, initial_bias: 0.0}
+pool1: {kernel_size: 2, stride: 2}
+conv2: {out_channels: 32, kernel_size: 3}
+pool2: {kernel_size: 2, stride: 2}
+flatten_features: 704
+dense1: {out_features: 128}
+dense2: {out_features: 2}
+expected_parameter_count: 141732
