@@ -19,4 +19,5 @@ No se corrigen contradicciones de forma silenciosa. Cada decisión se toma con l
 - **DEC-013 — Entorno.** No se entrena localmente. Preparación real y entrenamiento real se reservan a Kaggle. Los tests locales, si existen, no son resultados científicos.
 - **DEC-014 — Almacenamiento.** Datos, características, checkpoints y predicciones completas quedan fuera de Git. Sólo se versiona el paquete reducido.
 - **DEC-015 — Resultados pendientes.** No se insertan números hasta completar tres semillas en Kaggle. Un benchmark de 10 épocas sólo estima costo.
-- **DEC-016 — GitHub.** La creación remota queda pendiente de autenticación oficial de GitHub CLI. El correo debe verificarse en GitHub antes del primer push; no se solicitan tokens en texto.
+- **DEC-016 — GitHub.** GitHub CLI se autenticó mediante el flujo oficial. `sarah.vasquezmo@udlap.mx` fue confirmado como correo verificado antes del primer commit. El repositorio remoto quedó privado y no se solicitaron ni almacenaron tokens en texto.
+- **DEC-017 — Kaggle pendiente.** El 2026-09-26 la sesión del navegador no estaba autenticada en Kaggle. No se ejecutaron datos reales, benchmark ni entrenamiento y no se generaron métricas; la pantalla oficial de inicio de sesión quedó abierta para la usuaria.
