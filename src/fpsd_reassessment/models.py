@@ -53,8 +53,9 @@ def validate_architecture(model: nn.Module | None = None) -> int:
     count = parameter_count(model)
     if count != FPSDCNN.expected_parameters:
         raise RuntimeError(f"Parameter count {count:,} != expected {FPSDCNN.expected_parameters:,}")
+    reference = next(model.parameters())
     with torch.no_grad():
-        output = model(torch.zeros(2, 95))
+        output = model(torch.zeros(2, 95, device=reference.device, dtype=reference.dtype))
     if tuple(output.shape) != (2, 2):
         raise RuntimeError(f"Unexpected output shape {tuple(output.shape)}")
     return count

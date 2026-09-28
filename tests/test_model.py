@@ -16,3 +16,9 @@ def test_shared_starrelu_instance_adds_two_parameters_only():
     model = FPSDCNN()
     activation = [name for name, _ in model.named_parameters() if name.startswith("activation.")]
     assert activation == ["activation.scale", "activation.bias"]
+
+
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA unavailable")
+def test_architecture_validation_uses_model_device():
+    model = FPSDCNN().cuda()
+    assert validate_architecture(model) == 141_732
