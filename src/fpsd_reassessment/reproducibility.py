@@ -7,6 +7,7 @@ import json
 import os
 import platform
 import random
+import re
 import shutil
 import subprocess
 import sys
@@ -50,9 +51,20 @@ def verify_hashes(root: str | Path) -> None:
 
 
 def git_commit(root: str | Path = ".") -> str:
+    root = Path(root)
     try:
-        return subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
-    except Exception:
+        return subprocess.check_output(
+            ["git", "-C", str(root), "rev-parse", "HEAD"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        source_commit = root / "SOURCE_COMMIT"
+        if source_commit.exists():
+            value = source_commit.read_text(encoding="utf-8").strip().lower()
+            if not re.fullmatch(r"[0-9a-f]{40}", value):
+                raise ValueError(f"Invalid packaged source commit: {value!r}")
+            return value
         return "UNCOMMITTED"
 
 
