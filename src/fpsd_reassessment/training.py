@@ -140,7 +140,7 @@ def train_one(
         epoch_started = time.perf_counter()
         for x, y, _ in fit_loader:
             x, y = x.to(device, non_blocking=True), y.to(device, non_blocking=True)
-            if x.device != device or y.device != device:
+            if x.device.type != device.type or y.device.type != device.type:
                 raise RuntimeError("A batch was not moved to the selected device")
             optimizer.zero_grad(set_to_none=True)
             logits = model(x)
