@@ -126,7 +126,7 @@ def train_one(
 
     model = FPSDCNN().to(device)
     validate_architecture(model)
-    if next(model.parameters()).device != device:
+    if next(model.parameters()).device.type != device.type:
         raise RuntimeError("Model was not moved to the selected device")
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.RMSprop(model.parameters(), lr=learning_rate)
