@@ -9,6 +9,19 @@ El repositorio separa dos preguntas:
 
 La ejecución científica ocurre exclusivamente en Kaggle. Windows se usa para Codex, navegador y revisión opcional; no se entrena localmente.
 
+## Estado verificado
+
+La preparación y el entrenamiento final están completos:
+
+- 65 sujetos AD–CN: 36 AD y 29 CN; los 65 aprobaron QC.
+- 10,615 ventanas de 5 s; tensor `10,615 × 19 × 5` y vista plana de 95 rasgos.
+- Tres semillas completas (`2026`, `2027`, `2028`) para ambos protocolos.
+- 12 pruebas aprobadas antes del entrenamiento; GPU Tesla T4; 141,732 parámetros.
+- Balanced accuracy media por sujeto: `93.94% ± 6.94%` forense y `93.94% ± 2.62%` válida.
+- Commit registrado en los resultados: `8f8ab4e1f10be70981ce4b9f02ea0539bd4ac1e8`.
+
+La ejecución final está en [Kaggle, versión 7](https://www.kaggle.com/code/sarahvasquez97/01-train-baseline-kaggle?scriptVersionId=353772449). El reporte completo está en `reports/week1_baseline.md` y las tablas verificadas en `results/metrics/`.
+
 ## Evidencia congelada
 
 - Artículo: Li et al., *Neural Processing Letters* (2026), DOI `10.1007/s11063-026-11850-5`.
@@ -20,9 +33,9 @@ No se redistribuye el upstream ni los datos. Sus hashes, atribución y discrepan
 
 ## Ejecución
 
-1. Importe `notebooks/00_prepare_features_kaggle.ipynb` en un notebook Kaggle con Internet y CPU.
+1. Importe `notebooks/00_prepare_features_kaggle.ipynb` en un notebook Kaggle con CPU y adjunte el mirror `thngdngvn/openneuro-ds004504` si Internet no está disponible.
 2. Guarde `fpsd_features_bundle.zip` como dataset privado `fpsd-paper95-features`.
-3. Importe `notebooks/01_train_baseline_kaggle.ipynb`, añada ese dataset privado y active GPU.
+3. Importe `notebooks/01_train_baseline_kaggle.ipynb`, añada `fpsd-paper95-features`, el paquete privado de código y active GPU.
 4. Ejecute “Save & Run All”. El notebook verifica hashes, corre las pruebas, hace el benchmark y sólo después entrena.
 5. Descargue `github_results_bundle.zip` e incorpórelo siguiendo `docs/KAGGLE_RUNBOOK.md`.
 

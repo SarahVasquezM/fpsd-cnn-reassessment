@@ -6,9 +6,9 @@ Esta guía asume poca experiencia de infraestructura. No requiere VS Code ni una
 
 Entre a Kaggle, elija **Code → New Notebook → File → Import Notebook** e importe primero `00_prepare_features_kaggle.ipynb`. Repita después con `01_train_baseline_kaggle.ipynb`. En ambos casos añada el repositorio como fuente de código o suba una copia del repositorio a la sesión, de modo que la carpeta que contiene `pyproject.toml` esté disponible.
 
-## 2. Activar Internet para la preparación
+## 2. Añadir la fuente OpenNeuro
 
-En el notebook 00 abra **Notebook options** y active **Internet on**. Este paso descarga dependencias y sólo los 65 archivos derivados AD/CN de OpenNeuro v1.0.9. Use CPU; no necesita GPU.
+Use CPU; no necesita GPU. Si la cuenta tiene Internet habilitado, el notebook puede descargar los 65 derivados AD/CN de OpenNeuro v1.0.9. Si Internet está deshabilitado, añada el dataset Kaggle `thngdngvn/openneuro-ds004504`; el notebook detecta `ds004504/participants.tsv` y `ds004504/derivatives/` y ejecuta con `--skip-download`. En ambos casos se verifican los SHA-256 de los `.set`.
 
 ## 3. Preparar y guardar las características
 
@@ -21,11 +21,11 @@ Seleccione **Create Dataset** desde el output, marque el dataset como **Private*
 
 ## 4. Añadir características y seleccionar GPU
 
-Abra el notebook 01. En **Add Input** busque su dataset privado `fpsd-paper95-features` y agréguelo. En **Notebook options → Accelerator** seleccione una GPU. Internet puede permanecer apagado si el repositorio y dependencias ya están disponibles; si la primera celda informa paquetes faltantes, actívelo sólo para instalar y vuelva a ejecutar.
+Abra el notebook 01. En **Add Input** agregue `fpsd-paper95-features` y el dataset privado `fpsd-cnn-reassessment-code`. El paquete de código debe contener `SOURCE_COMMIT`; la primera celda rechaza versiones antiguas que no puedan demostrar su procedencia. En **Notebook options → Accelerator** seleccione una GPU. Internet puede permanecer apagado.
 
 ## 5. Entrenar
 
-Pulse **Save Version → Save & Run All**. El notebook verifica hashes y GPU, ejecuta pruebas rápidas y hace un benchmark de 10 épocas. Si estima que dos protocolos × tres semillas caben con 10% de margen en menos de 10 horas, continúa en esa versión. Si no, la versión ejecuta una sola semilla; cree dos versiones adicionales cambiando únicamente `SEEDS` a `[2027]` y `[2028]`. No cambie ningún otro parámetro.
+Pulse **Save Version → Save & Run All**. El notebook verifica hashes, procedencia y GPU, ejecuta las pruebas y hace un benchmark de 10 épocas. Si estima que dos protocolos × tres semillas caben con 10% de margen en menos de 10 horas, continúa en esa versión. Si no, la versión ejecuta una sola semilla; cree dos versiones adicionales cambiando únicamente `SEEDS` a `[2027]` y `[2028]`. No cambie ningún otro parámetro. Una ejecución completa debe dejar 12 pruebas aprobadas y `results/metrics/github_commit.txt` con un hash Git de 40 caracteres.
 
 ## 6. Encontrar y descargar outputs
 

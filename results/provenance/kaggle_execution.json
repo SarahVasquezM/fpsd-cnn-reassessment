@@ -1,0 +1,26 @@
+{
+  "code_dataset": {
+    "slug": "sarahvasquez97/fpsd-cnn-reassessment-code",
+    "version": 5
+  },
+  "feature_dataset": {
+    "slug": "sarahvasquez97/fpsd-paper95-features",
+    "tensor_shape": [10615, 19, 5]
+  },
+  "feature_notebook": {
+    "slug": "sarahvasquez97/00-prepare-features-kaggle",
+    "version": 3
+  },
+  "github_results_bundle_sha256": "78c50d697f3f0e04f5db1f1d7957157fe16d9e76e058282788c18cc9a437d716",
+  "manifest_files_verified": 21,
+  "source_commit": "8f8ab4e1f10be70981ce4b9f02ea0539bd4ac1e8",
+  "tests_passed": 12,
+  "training_notebook": {
+    "script_version_id": 353772449,
+    "slug": "sarahvasquez97/01-train-baseline-kaggle",
+    "version": 7,
+    "wall_time_seconds": 650
+  },
+  "training_seeds": [2026, 2027, 2028],
+  "verified_utc": "2026-09-29T05:27:38Z"
+}

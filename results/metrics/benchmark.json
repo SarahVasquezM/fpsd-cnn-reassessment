@@ -1,0 +1,9 @@
+{
+  "benchmark_epochs": 10,
+  "elapsed_seconds": 7.941886201999978,
+  "estimated_hours": 0.13236477003333297,
+  "estimated_seconds_two_protocols_three_seeds": 476.51317211999867,
+  "fits_10h_with_10pct_margin": true,
+  "gpu_peak_memory_bytes": 89718784,
+  "seconds_per_epoch": 0.7941886201999978
+}

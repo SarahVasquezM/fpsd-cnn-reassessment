@@ -1,0 +1,344 @@
+{
+  "dataset": "ds004504",
+  "n_windows": 10615,
+  "openneuro_git_commit": "63b2ec152bc3cd4487d131124f10f767ebe543bc",
+  "participants_sha256": "bd17cf02ec9733c9029d4a6d977b2918309b3c667ff9ceb1b5dce6e3cebccbc1",
+  "sources": [
+    {
+      "bytes": 24357408,
+      "path": "derivatives/sub-001/eeg/sub-001_task-eyesclosed_eeg.set",
+      "sha256": "2bee41ac31694c06688bd4e36e4fd1233b4744c5ac80a822ec2a9cd67c5efe0d"
+    },
+    {
+      "bytes": 32186728,
+      "path": "derivatives/sub-002/eeg/sub-002_task-eyesclosed_eeg.set",
+      "sha256": "7996d30b453a6438d39f0059547b8ef50669f9f084111d05bfec694a14b59a2c"
+    },
+    {
+      "bytes": 13076664,
+      "path": "derivatives/sub-003/eeg/sub-003_task-eyesclosed_eeg.set",
+      "sha256": "6689383d189c2469b9f9786d2e0487d92cc215ca1eb1f729a792ed51ad9a9f9c"
+    },
+    {
+      "bytes": 30076328,
+      "path": "derivatives/sub-004/eeg/sub-004_task-eyesclosed_eeg.set",
+      "sha256": "e9a582edcdd5a6fffd1bb7232007ec11d29486dba46d0e5c45f260cb9e7b92b8"
+    },
+    {
+      "bytes": 32631904,
+      "path": "derivatives/sub-005/eeg/sub-005_task-eyesclosed_eeg.set",
+      "sha256": "befa4f7ac305c6faefb92fa0f82028327f51c277f5c5ecaf6271d669e7800291"
+    },
+    {
+      "bytes": 26945984,
+      "path": "derivatives/sub-006/eeg/sub-006_task-eyesclosed_eeg.set",
+      "sha256": "3b87b043aa7540910d7b9e4b871e1f11af1f2437ee2f1cfb6f6b14d86f36ee04"
+    },
+    {
+      "bytes": 32640632,
+      "path": "derivatives/sub-007/eeg/sub-007_task-eyesclosed_eeg.set",
+      "sha256": "d1aa601da8b8ecdf4f3ae7be1857aaca414209d2791b3cfdf02630a9258cfa1e"
+    },
+    {
+      "bytes": 33789504,
+      "path": "derivatives/sub-008/eeg/sub-008_task-eyesclosed_eeg.set",
+      "sha256": "30d3b20abae8fe15f9c4771da03ac090403a0adfeed2292fae67a4484a297b05"
+    },
+    {
+      "bytes": 26102248,
+      "path": "derivatives/sub-009/eeg/sub-009_task-eyesclosed_eeg.set",
+      "sha256": "6a22b93a1901593f2eb1fc600c03af8a54f318f4a8695745f5a65bfb63f76657"
+    },
+    {
+      "bytes": 54545192,
+      "path": "derivatives/sub-010/eeg/sub-010_task-eyesclosed_eeg.set",
+      "sha256": "514316b75b01095d987b50f286f8d1843da2f13d24dbac42d245af1378d4c777"
+    },
+    {
+      "bytes": 32788688,
+      "path": "derivatives/sub-011/eeg/sub-011_task-eyesclosed_eeg.set",
+      "sha256": "5f99ea3575b9b2f5c33f1c091d27c7a2119b105feab11dfbfa5187b764f6a998"
+    },
+    {
+      "bytes": 37624784,
+      "path": "derivatives/sub-012/eeg/sub-012_task-eyesclosed_eeg.set",
+      "sha256": "871259ec1ff9fa4bfda7f2ea92b1a9a597de716c28e4a4181616267206ec5b13"
+    },
+    {
+      "bytes": 35687368,
+      "path": "derivatives/sub-013/eeg/sub-013_task-eyesclosed_eeg.set",
+      "sha256": "cb34050f098bf22a3f8c2d2ad310ad7a26b336dd80707cd6c845c9ea051dde8a"
+    },
+    {
+      "bytes": 39786624,
+      "path": "derivatives/sub-014/eeg/sub-014_task-eyesclosed_eeg.set",
+      "sha256": "7de89cab9ba48b48f7c7d470f78ed1164488910e8ab905a293be376a3a2d8448"
+    },
+    {
+      "bytes": 38380232,
+      "path": "derivatives/sub-015/eeg/sub-015_task-eyesclosed_eeg.set",
+      "sha256": "ecc8fb5fd0c67f5ecfa61a98ad8c99c9fbb91ded460ae622e766ccbd3bb7b694"
+    },
+    {
+      "bytes": 41399792,
+      "path": "derivatives/sub-016/eeg/sub-016_task-eyesclosed_eeg.set",
+      "sha256": "5ed950cc3b031ca26d6edb8666225f6d8136fbbf6758869130ab27eef67ce914"
+    },
+    {
+      "bytes": 35912800,
+      "path": "derivatives/sub-017/eeg/sub-017_task-eyesclosed_eeg.set",
+      "sha256": "9ef28e09655f1b57fdd44eed4b594bbc4f89ce8630eb8a9acfb2ded9ece241e5"
+    },
+    {
+      "bytes": 35984528,
+      "path": "derivatives/sub-018/eeg/sub-018_task-eyesclosed_eeg.set",
+      "sha256": "a7a62ed9c6a3155d421fd0750c3a4cdec7f60b27dfc95be687092e1ede1552c7"
+    },
+    {
+      "bytes": 39108448,
+      "path": "derivatives/sub-019/eeg/sub-019_task-eyesclosed_eeg.set",
+      "sha256": "91b718e4ec88613f4b3f6a1105c909a8d524e9176801f46b69dcf0aabd010b09"
+    },
+    {
+      "bytes": 35272512,
+      "path": "derivatives/sub-020/eeg/sub-020_task-eyesclosed_eeg.set",
+      "sha256": "31ad3071940f98dc3abe7fb6079f2fbb65d4c07f7e81c9c318bd719035533050"
+    },
+    {
+      "bytes": 39179520,
+      "path": "derivatives/sub-021/eeg/sub-021_task-eyesclosed_eeg.set",
+      "sha256": "f5cee362ad4f1b7c7983bec413fbeff2813ad53c120663c2b62ae228f87abe65"
+    },
+    {
+      "bytes": 34999360,
+      "path": "derivatives/sub-022/eeg/sub-022_task-eyesclosed_eeg.set",
+      "sha256": "c6aa0f028980b37694c8f6c5eebf33a30251da88f82a275409fd84f0a14044f3"
+    },
+    {
+      "bytes": 35559904,
+      "path": "derivatives/sub-023/eeg/sub-023_task-eyesclosed_eeg.set",
+      "sha256": "6f76aa5f0f7e76e7c924f87dfe5cd4a54bdf205da1a39d050e51263462f28ea6"
+    },
+    {
+      "bytes": 32362568,
+      "path": "derivatives/sub-024/eeg/sub-024_task-eyesclosed_eeg.set",
+      "sha256": "20f9c037debb0a5123e50ddb23a9c724902573d9730ddf313d347154806468f2"
+    },
+    {
+      "bytes": 29160688,
+      "path": "derivatives/sub-025/eeg/sub-025_task-eyesclosed_eeg.set",
+      "sha256": "9f69af89ee60139680ee1255d8133433da3d858e786c88d34b698b89883f1c48"
+    },
+    {
+      "bytes": 38269992,
+      "path": "derivatives/sub-026/eeg/sub-026_task-eyesclosed_eeg.set",
+      "sha256": "cee439f692a00cca2ebadc9cab9bfbfdf0c53c80da92984874a0621486bd82cb"
+    },
+    {
+      "bytes": 35182824,
+      "path": "derivatives/sub-027/eeg/sub-027_task-eyesclosed_eeg.set",
+      "sha256": "8647c35865d88d35b96641774465a1848374da726e3d27af10cac3e67b4d9e1b"
+    },
+    {
+      "bytes": 34842544,
+      "path": "derivatives/sub-028/eeg/sub-028_task-eyesclosed_eeg.set",
+      "sha256": "456cef7bceecea7d73aa05204d40462939c46c0d587f727c2d258a872e766197"
+    },
+    {
+      "bytes": 31377552,
+      "path": "derivatives/sub-029/eeg/sub-029_task-eyesclosed_eeg.set",
+      "sha256": "976381a11cc2d05ab83dfa18ed2ea5b823de0b628123a7a87b56261a6e4d1c7e"
+    },
+    {
+      "bytes": 23616688,
+      "path": "derivatives/sub-030/eeg/sub-030_task-eyesclosed_eeg.set",
+      "sha256": "52ac5b13f2b9f63404d3ed9fa441f62cdcb007e18d0536d3948d2d6219ea415b"
+    },
+    {
+      "bytes": 48977152,
+      "path": "derivatives/sub-031/eeg/sub-031_task-eyesclosed_eeg.set",
+      "sha256": "b3aa5706a8105488c1804ebd3af84e0feb3617f60fd919fbc118cc1a5b3c93c5"
+    },
+    {
+      "bytes": 34006464,
+      "path": "derivatives/sub-032/eeg/sub-032_task-eyesclosed_eeg.set",
+      "sha256": "85df1c92af6da493a20aff8714ebe54b50a9ce0067800b2879141d225a8e38f1"
+    },
+    {
+      "bytes": 30047768,
+      "path": "derivatives/sub-033/eeg/sub-033_task-eyesclosed_eeg.set",
+      "sha256": "d84c49e0663506d46db48c6862d1591b88df3d15d50e0e51da73a87e138fb3dd"
+    },
+    {
+      "bytes": 41287168,
+      "path": "derivatives/sub-034/eeg/sub-034_task-eyesclosed_eeg.set",
+      "sha256": "d3bc3e0b4be18da274907ff65b3bbe3355ad6ef8d6b1ca6f3cbefae88585d9b6"
+    },
+    {
+      "bytes": 31571112,
+      "path": "derivatives/sub-035/eeg/sub-035_task-eyesclosed_eeg.set",
+      "sha256": "09deb5d9eab734e989c4c38d0296763b3697ab93ed46445f1a0fabf3fca964de"
+    },
+    {
+      "bytes": 35830920,
+      "path": "derivatives/sub-036/eeg/sub-036_task-eyesclosed_eeg.set",
+      "sha256": "0e2d814176e6f0f55245d339ec0fec12c1c014ac2933ecffd1e1da495e797c3c"
+    },
+    {
+      "bytes": 31538736,
+      "path": "derivatives/sub-037/eeg/sub-037_task-eyesclosed_eeg.set",
+      "sha256": "9921624e8bd740202cbb116a23f66fe9258378998bd0032bfefa47b7bf9d35d9"
+    },
+    {
+      "bytes": 37952112,
+      "path": "derivatives/sub-038/eeg/sub-038_task-eyesclosed_eeg.set",
+      "sha256": "cdc9cf5e704517ae645483f7f4af73644407510c99aede2b2ef9d114a5d7b8bb"
+    },
+    {
+      "bytes": 36199128,
+      "path": "derivatives/sub-039/eeg/sub-039_task-eyesclosed_eeg.set",
+      "sha256": "5576afeb06073f77760f4803dc4333e2c77ddb25e40cf3af54343b665214e593"
+    },
+    {
+      "bytes": 41142360,
+      "path": "derivatives/sub-040/eeg/sub-040_task-eyesclosed_eeg.set",
+      "sha256": "20279f151615d595e925631f226110b6ee02691f0c5dee1223f8176f1e645e4f"
+    },
+    {
+      "bytes": 37725664,
+      "path": "derivatives/sub-041/eeg/sub-041_task-eyesclosed_eeg.set",
+      "sha256": "6643ac4b575fcb6cf03329274034a345077ebd39cbf0e4d8daa647d5c395eadb"
+    },
+    {
+      "bytes": 41001992,
+      "path": "derivatives/sub-042/eeg/sub-042_task-eyesclosed_eeg.set",
+      "sha256": "88aed8afce7b3ffc2ff879713c5dcf95048c3583691c01d7bef850fc680c294b"
+    },
+    {
+      "bytes": 33644736,
+      "path": "derivatives/sub-043/eeg/sub-043_task-eyesclosed_eeg.set",
+      "sha256": "b16d7982c0660c627c25e758698937ce58f046f08f39fe4df17452dab2f65f1b"
+    },
+    {
+      "bytes": 35770656,
+      "path": "derivatives/sub-044/eeg/sub-044_task-eyesclosed_eeg.set",
+      "sha256": "89f84d55abd8ca9d37fae77bd5735956f4f98fcc72a8e9d8e33b9881499eb422"
+    },
+    {
+      "bytes": 36267832,
+      "path": "derivatives/sub-045/eeg/sub-045_task-eyesclosed_eeg.set",
+      "sha256": "06872ef2c34385452a7bb106acfc2c773b88a72898e27554b822568ed6ac3e3b"
+    },
+    {
+      "bytes": 32074040,
+      "path": "derivatives/sub-046/eeg/sub-046_task-eyesclosed_eeg.set",
+      "sha256": "1a1dc77cc8be6b6405e89876757da3db75cd11c08a33f7613c02a4606c91fe1a"
+    },
+    {
+      "bytes": 34364248,
+      "path": "derivatives/sub-047/eeg/sub-047_task-eyesclosed_eeg.set",
+      "sha256": "94ed76a3ddc87d8adb0db946fefdbfa18dbfae7cdfae4ee9e1aec9dbb7d39eb7"
+    },
+    {
+      "bytes": 42150744,
+      "path": "derivatives/sub-048/eeg/sub-048_task-eyesclosed_eeg.set",
+      "sha256": "b749f9e3058dbb3398ce498d1f205c68b5a4312e4f766c8e37f3452b8ed26bd0"
+    },
+    {
+      "bytes": 33226992,
+      "path": "derivatives/sub-049/eeg/sub-049_task-eyesclosed_eeg.set",
+      "sha256": "98f2b1baf832eae2357754a0d5be50ca01ad0ed5b9d0f0e786e85d51d6572a3e"
+    },
+    {
+      "bytes": 34821776,
+      "path": "derivatives/sub-050/eeg/sub-050_task-eyesclosed_eeg.set",
+      "sha256": "a5340e8a7feb7e35595ca512bf4c4e0478ed1bfac762afd9d014be3e77731c54"
+    },
+    {
+      "bytes": 32103976,
+      "path": "derivatives/sub-051/eeg/sub-051_task-eyesclosed_eeg.set",
+      "sha256": "568e5f06f280ae7dc31256b0637f1f610183fd5ff72f30dca6214e33f3c739e0"
+    },
+    {
+      "bytes": 32371008,
+      "path": "derivatives/sub-052/eeg/sub-052_task-eyesclosed_eeg.set",
+      "sha256": "068e3687d2dff59ff1b790485236551439136c6d139e2e88d9d26e47d7d83b47"
+    },
+    {
+      "bytes": 33250384,
+      "path": "derivatives/sub-053/eeg/sub-053_task-eyesclosed_eeg.set",
+      "sha256": "c06142af0699bdf65b61e6457609cf40b92587e59d98f03fd84d69816285b1ed"
+    },
+    {
+      "bytes": 35668024,
+      "path": "derivatives/sub-054/eeg/sub-054_task-eyesclosed_eeg.set",
+      "sha256": "53e5b0f56b67f33d6c02ad277fda1d57d383ccb27b43c2c19f39beb5aaf7a3ca"
+    },
+    {
+      "bytes": 34692736,
+      "path": "derivatives/sub-055/eeg/sub-055_task-eyesclosed_eeg.set",
+      "sha256": "9d65d41bac4803e47e328b8c586aa82866805d89e77c2a6183c520df467df0f9"
+    },
+    {
+      "bytes": 33755288,
+      "path": "derivatives/sub-056/eeg/sub-056_task-eyesclosed_eeg.set",
+      "sha256": "9a8fbb0923d836bd5aa29010124828f794648beb4b52eabf7c046e4586b41ba3"
+    },
+    {
+      "bytes": 32324112,
+      "path": "derivatives/sub-057/eeg/sub-057_task-eyesclosed_eeg.set",
+      "sha256": "4a0b8095a0f0f75ffb65ba96d1555c50a3e2522d53f71013957d3a287322e800"
+    },
+    {
+      "bytes": 32233184,
+      "path": "derivatives/sub-058/eeg/sub-058_task-eyesclosed_eeg.set",
+      "sha256": "f5a8ca25a68bfdf219d2399d31575ff901c824afc5b1cb76f84ac7d1bfc10df9"
+    },
+    {
+      "bytes": 33520392,
+      "path": "derivatives/sub-059/eeg/sub-059_task-eyesclosed_eeg.set",
+      "sha256": "fb6bd8c4d81efa76eb54c9025b788c04f0944a9bab602d97999995b01555a16b"
+    },
+    {
+      "bytes": 31878360,
+      "path": "derivatives/sub-060/eeg/sub-060_task-eyesclosed_eeg.set",
+      "sha256": "fe203229a97787a46cecde4d8e1abfe90b60183b65e99e35393793bff8e76adf"
+    },
+    {
+      "bytes": 34208384,
+      "path": "derivatives/sub-061/eeg/sub-061_task-eyesclosed_eeg.set",
+      "sha256": "edb69e0e90c8489d63fe801fe8c5fec4cedc655ec6b14f56b18a42f726280f65"
+    },
+    {
+      "bytes": 38269768,
+      "path": "derivatives/sub-062/eeg/sub-062_task-eyesclosed_eeg.set",
+      "sha256": "b75b58ca0f404bec77680fac09555091799dc902338376a8f262cbb3bdb4b246"
+    },
+    {
+      "bytes": 34278776,
+      "path": "derivatives/sub-063/eeg/sub-063_task-eyesclosed_eeg.set",
+      "sha256": "5c61ab2332d33e62e16ba3f4749625825d23ea12c50630d92ec3a576525e1f14"
+    },
+    {
+      "bytes": 36111008,
+      "path": "derivatives/sub-064/eeg/sub-064_task-eyesclosed_eeg.set",
+      "sha256": "4e0162e511499bfdd958ae8ba84aad1048b6cf106580643135eb67866358a0a0"
+    },
+    {
+      "bytes": 35871912,
+      "path": "derivatives/sub-065/eeg/sub-065_task-eyesclosed_eeg.set",
+      "sha256": "a9220b46810a2b187037e669bc59840d2923161ada06bc471a2b962dc1895b43"
+    }
+  ],
+  "subject_counts": {
+    "AD": 36,
+    "CN": 29,
+    "total": 65
+  },
+  "tensor_shape": [
+    10615,
+    19,
+    5
+  ],
+  "version": "1.0.9"
+}
