@@ -16,6 +16,7 @@ import yaml
 
 from fpsd_reassessment.aggregation import aggregate_subjects
 from fpsd_reassessment.io import load_feature_bundle
+from fpsd_reassessment.manifests import fold_index
 from fpsd_reassessment.metrics import (
     classification_metrics,
     subject_bootstrap_intervals,
@@ -179,7 +180,7 @@ def _aggregate_completed(root: Path, task: str, evaluation: str, balance: str, n
         manifest = json.loads((fold_root / "split_manifest.json").read_text(encoding="utf-8"))
         fold_rows.append({
             "task": task, "evaluation": evaluation, "balance": balance,
-            "protocol": manifest["protocol"], "seed": manifest["seed"], "fold": manifest["fold"],
+            "protocol": manifest["protocol"], "seed": manifest["seed"], "fold": fold_index(manifest),
             **{f"window_{key}": value for key, value in window_metrics.items() if not isinstance(value, list)},
             **{f"subject_{key}": value for key, value in subject_metrics.items() if not isinstance(value, list)},
             **runtime,
