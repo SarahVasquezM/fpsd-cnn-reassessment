@@ -1,6 +1,6 @@
 # FPSD-CNN reassessment
 
-Reproducción auditable del baseline FPSD-CNN para clasificación AD–CN con los derivados preprocesados de OpenNeuro `ds004504` versión `1.0.9`.
+Reproducción auditable del baseline FPSD-CNN para clasificación AD–CN y CN–FTD con los derivados preprocesados de OpenNeuro `ds004504` versión `1.0.9`.
 
 El repositorio separa dos preguntas:
 
@@ -8,6 +8,8 @@ El repositorio separa dos preguntas:
 - `valid_subject_disjoint`: crea validación sólo desde los 43 sujetos de entrenamiento, selecciona el checkpoint allí y evalúa una sola vez los 22 sujetos del test publicado.
 
 La ejecución científica ocurre exclusivamente en Kaggle. Windows se usa para Codex, navegador y revisión opcional; no se entrena localmente.
+
+La semana 2 añade un bundle de 88 sujetos, el holdout CN–FTD publicado, validación agrupada de cinco folds, balanceo reproducible sólo en entrenamiento y LOSO verdadero. La guía paso a paso está en [`docs/WEEK2_RUNBOOK.md`](docs/WEEK2_RUNBOOK.md) y la especificación científica en `reports/week2_grouped_validation.md`.
 
 ## Estado verificado
 
@@ -38,6 +40,8 @@ No se redistribuye el upstream ni los datos. Sus hashes, atribución y discrepan
 3. Importe `notebooks/01_train_baseline_kaggle.ipynb`, añada `fpsd-paper95-features`, el paquete privado de código y active GPU.
 4. Ejecute “Save & Run All”. El notebook verifica hashes, corre las pruebas, hace el benchmark y sólo después entrena.
 5. Descargue `github_results_bundle.zip` e incorpórelo siguiendo `docs/KAGGLE_RUNBOOK.md`.
+
+Para semana 2, use `02_prepare_week2_features_kaggle.ipynb` y después `03_train_week2_kaggle.ipynb`. El segundo notebook comienza con un benchmark LOSO de cinco folds y permite reanudar rangos de folds sin mezclar configuraciones.
 
 ## Reglas científicas
 

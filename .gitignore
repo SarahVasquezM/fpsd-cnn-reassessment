@@ -10,6 +10,7 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.pytest-temp-week2-*/
 .mypy_cache/
 .ruff_cache/
 .ipynb_checkpoints/
@@ -42,6 +43,9 @@ kaggle/working/
 /week1_results/
 /fpsd_features/
 wandb/
+graphify-out/
+/week2_results/
+/fpsd_features_all/
 
 # OS/editor noise
 .DS_Store

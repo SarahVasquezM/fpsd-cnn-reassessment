@@ -51,3 +51,23 @@ No edite el split, hashes, orden de canales, bandas, umbral 0.5, semillas ni res
 ## 10. VS Code opcional
 
 Si ya está instalado, puede abrir la carpeta del repositorio, revisar archivos y diferencias, inspeccionar notebooks y administrar Git visualmente. No configure Python, CUDA, MNE o PyTorch localmente y no intente conectar VS Code con Kaggle durante la semana 1.
+
+## 11. Semana 2: bundle de 88 sujetos
+
+La guía completa y operativa de semana 2 está en [`docs/WEEK2_RUNBOOK.md`](WEEK2_RUNBOOK.md). Las secciones siguientes son sólo un resumen.
+
+Importe `02_prepare_week2_features_kaggle.ipynb`, adjunte el mismo mirror de OpenNeuro y use CPU. La salida válida es `/kaggle/working/fpsd_features_all_bundle.zip`; debe contener 36 AD, 29 CN y 23 FTD. Guárdela como dataset privado `fpsd-paper95-all-features`.
+
+## 12. Semana 2: benchmark y entrenamiento
+
+Importe `03_train_week2_kaggle.ipynb`, adjunte el paquete de código y `fpsd-paper95-all-features`, y active GPU. Mantenga primero `MODE = 'benchmark'`: se miden cinco folds LOSO de AD–CN y cinco de CN–FTD con 10 épocas. Si una semilla completa no cabe con margen en nueve horas, divida la ejecución con `FOLD_START` inclusivo y `FOLD_STOP` exclusivo.
+
+Después use `MODE = 'run'`. El orden aprobado es:
+
+1. `published_holdout` para CN–FTD, balance `none`, semillas 2026–2028; el modo automático ejecuta reconstrucción forense y evaluación válida.
+2. `grouped5` para AD–CN y CN–FTD, balances `none` y `subject_class`, semillas 2026–2028.
+3. `loso` para AD–CN y CN–FTD, balance `none`, sólo semilla 2026 inicialmente.
+
+Conserve `--resume`: un fold terminado sólo se reutiliza si coinciden configuración, sujetos y hash del bundle. Un directorio incompleto o una firma distinta detiene la ejecución en vez de sobrescribir resultados.
+
+No compare directamente el 93.94% por sujeto de semana 1 con el 88.36% por ventana del artículo. La tabla comparable se genera en `week2_results/article_comparison.csv`; las métricas agrupadas y LOSO responden una pregunta de generalización distinta.

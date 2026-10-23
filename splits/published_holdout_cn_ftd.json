@@ -1,0 +1,17 @@
+{
+  "name": "published_fixed_subject_holdout_cn_ftd",
+  "task": "cn_ftd",
+  "negative_label": "CN",
+  "positive_label": "FTD",
+  "source_repository": "changjingzhi/FPSD-CNN",
+  "source_commit": "45f33193c8b100ec715b8606aadaf42c08027bb8",
+  "train": {
+    "CN": ["sub-039", "sub-040", "sub-041", "sub-043", "sub-044", "sub-045", "sub-047", "sub-048", "sub-049", "sub-050", "sub-052", "sub-053", "sub-055", "sub-057", "sub-058", "sub-059", "sub-061", "sub-062", "sub-063", "sub-064"],
+    "FTD": ["sub-069", "sub-070", "sub-071", "sub-072", "sub-074", "sub-075", "sub-076", "sub-077", "sub-078", "sub-080", "sub-082", "sub-083", "sub-086", "sub-087", "sub-088"]
+  },
+  "test": {
+    "CN": ["sub-037", "sub-038", "sub-042", "sub-046", "sub-051", "sub-054", "sub-056", "sub-060", "sub-065"],
+    "FTD": ["sub-066", "sub-067", "sub-068", "sub-073", "sub-079", "sub-081", "sub-084", "sub-085"]
+  },
+  "counts": {"train_CN": 20, "train_FTD": 15, "test_CN": 9, "test_FTD": 8, "total": 52}
+}

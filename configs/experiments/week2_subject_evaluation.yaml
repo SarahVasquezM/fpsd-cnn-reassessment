@@ -1,0 +1,38 @@
+name: week2_subject_evaluation
+feature_config: configs/features/paper95.yaml
+model_config: configs/models/fpsd_cnn_512.yaml
+published_splits:
+  ad_cn: splits/original_holdout.json
+  cn_ftd: splits/published_holdout_cn_ftd.json
+task_counts:
+  ad_cn: {AD: 36, CN: 29, total: 65}
+  cn_ftd: {CN: 29, FTD: 23, total: 52}
+training:
+  loss: cross_entropy
+  optimizer: RMSprop
+  learning_rate: 0.0005
+  batch_size: 64
+  max_epochs: 100
+  validation_fraction_subjects: 0.2
+  validation_seed: 2026
+  seeds: [2026, 2027, 2028]
+  deterministic: true
+evaluation:
+  grouped_folds: 5
+  grouped_seed: 2026
+  primary_unit: subject
+  subject_aggregation: mean_positive_probability
+  threshold: 0.5
+  bootstrap_resamples: 10000
+balance:
+  policies: [none, subject_class]
+  description: "subject_class equalizes total sampling mass per class and per subject inside each class; validation/test are unchanged"
+published_preprocessed_window_accuracy:
+  ad_cn: 0.8836
+  cn_ftd: 0.8222
+kaggle:
+  session_budget_hours: 10
+  safe_budget_hours: 9
+  benchmark_folds: 5
+  benchmark_epochs: 10
+  output_dir: /kaggle/working/week2_results

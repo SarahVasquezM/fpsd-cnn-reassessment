@@ -11,7 +11,7 @@ import re
 import shutil
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import numpy as np
@@ -52,24 +52,48 @@ def verify_hashes(root: str | Path) -> None:
 
 def git_commit(root: str | Path = ".") -> str:
     root = Path(root)
-    try:
-        return subprocess.check_output(
-            ["git", "-C", str(root), "rev-parse", "HEAD"],
-            text=True,
-            stderr=subprocess.DEVNULL,
-        ).strip()
-    except (FileNotFoundError, subprocess.CalledProcessError):
-        source_commit = root / "SOURCE_COMMIT"
-        if source_commit.exists():
-            value = source_commit.read_text(encoding="utf-8").strip().lower()
-            if not re.fullmatch(r"[0-9a-f]{40}", value):
-                raise ValueError(f"Invalid packaged source commit: {value!r}")
-            return value
-        return "UNCOMMITTED"
+    if (root / ".git").exists():
+        try:
+            return subprocess.check_output(
+                ["git", "-C", str(root), "rev-parse", "HEAD"],
+                text=True,
+                stderr=subprocess.DEVNULL,
+            ).strip()
+        except (FileNotFoundError, subprocess.CalledProcessError):
+            pass
+    source_commit = root / "SOURCE_COMMIT"
+    if source_commit.exists():
+        value = source_commit.read_text(encoding="utf-8").strip().lower()
+        if not re.fullmatch(r"[0-9a-f]{40}", value):
+            raise ValueError(f"Invalid packaged source commit: {value!r}")
+        return value
+    return "UNCOMMITTED"
+
+
+def source_tree_sha256(root: str | Path = ".") -> str:
+    """Hash the executable scientific source even when a packaged copy has no .git directory."""
+    root = Path(root)
+    included_roots = ("src", "scripts", "configs", "splits")
+    files = [
+        path for directory in included_roots for path in (root / directory).rglob("*")
+        if path.is_file() and path.suffix in {".py", ".yaml", ".yml", ".json"}
+    ]
+    files.extend(path for path in (root / "pyproject.toml", root / "requirements-kaggle.txt") if path.is_file())
+    digest = hashlib.sha256()
+    for path in sorted(files):
+        relative = path.relative_to(root).as_posix()
+        digest.update(relative.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(sha256_file(path).encode("ascii"))
+        digest.update(b"\n")
+    if not files:
+        raise ValueError(f"No scientific source files found in {root}")
+    return digest.hexdigest()
 
 
 def environment_record() -> dict[str, object]:
     import importlib.metadata
+
     import psutil
 
     packages = {}
@@ -79,7 +103,7 @@ def environment_record() -> dict[str, object]:
         except importlib.metadata.PackageNotFoundError:
             packages[name] = None
     record: dict[str, object] = {
-        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "created_utc": datetime.now(UTC).isoformat(),
         "python": sys.version,
         "platform": platform.platform(),
         "cpu_count_logical": psutil.cpu_count(),
@@ -95,7 +119,7 @@ def environment_record() -> dict[str, object]:
         record["torch_cuda_version"] = torch.version.cuda
         record["cudnn_version"] = torch.backends.cudnn.version()
         record["gpu_name"] = torch.cuda.get_device_name(0) if torch.cuda.is_available() else None
-    except Exception:
+    except (ImportError, RuntimeError, AssertionError):
         pass
     return record
 

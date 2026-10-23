@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
 import numpy as np
@@ -10,17 +9,28 @@ import pandas as pd
 
 from .features import CHANNELS, flatten_band_major, reorder_channels
 
+GROUP_TO_DIAGNOSIS = {"A": "AD", "C": "CN", "F": "FTD"}
+EXPECTED_DIAGNOSIS_COUNTS = {"AD": 36, "CN": 29, "FTD": 23}
 
-def read_participants(path: str | Path) -> pd.DataFrame:
+
+def read_participants(
+    path: str | Path,
+    diagnoses: tuple[str, ...] | list[str] = ("AD", "CN"),
+) -> pd.DataFrame:
     frame = pd.read_csv(path, sep="\t", dtype={"participant_id": str, "Group": str})
     required = {"participant_id", "Group"}
     if not required.issubset(frame.columns):
         raise ValueError(f"participants.tsv lacks {sorted(required - set(frame.columns))}")
-    frame["diagnosis"] = frame["Group"].map({"A": "AD", "C": "CN", "F": "FTD"})
-    subset = frame[frame["Group"].isin(["A", "C"])].copy()
+    requested = tuple(dict.fromkeys(diagnoses))
+    unknown = set(requested) - set(EXPECTED_DIAGNOSIS_COUNTS)
+    if unknown or len(requested) < 2:
+        raise ValueError(f"Expected at least two known diagnoses, received {requested}")
+    frame["diagnosis"] = frame["Group"].map(GROUP_TO_DIAGNOSIS)
+    subset = frame[frame["diagnosis"].isin(requested)].copy()
     counts = subset["diagnosis"].value_counts().to_dict()
-    if counts != {"AD": 36, "CN": 29} or len(subset) != 65:
-        raise ValueError(f"Expected 36 AD + 29 CN, observed {counts}")
+    expected = {diagnosis: EXPECTED_DIAGNOSIS_COUNTS[diagnosis] for diagnosis in requested}
+    if counts != expected or len(subset) != sum(expected.values()):
+        raise ValueError(f"Expected {expected}, observed {counts}")
     return subset
 
 

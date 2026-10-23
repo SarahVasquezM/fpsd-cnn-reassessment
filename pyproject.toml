@@ -7,7 +7,7 @@ name = "fpsd-reassessment"
 version = "0.1.0"
 description = "Reproducible reassessment of FPSD-CNN on OpenNeuro ds004504"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 authors = [{name = "Sarah Vasquez M", email = "sarah.vasquezmo@udlap.mx"}]
 dependencies = [
   "numpy>=2.1,<3",
