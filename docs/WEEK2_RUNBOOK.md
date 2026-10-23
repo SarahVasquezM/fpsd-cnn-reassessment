@@ -19,13 +19,13 @@ El modelo, los 95 rasgos FPSD, las ventanas de 5 s, RMSprop, `learning_rate=0.00
 
 1. `notebooks/02_prepare_week2_features_kaggle.ipynb`: prepara los 88 sujetos con CPU.
 2. `notebooks/03_train_week2_kaggle.ipynb`: hace el benchmark y los entrenamientos con GPU.
-3. `fpsd-cnn-reassessment-code-v7.zip`: paquete de código para actualizar el dataset privado de Kaggle.
+3. `fpsd-cnn-reassessment-code-v8.zip`: paquete de código para actualizar el dataset privado de Kaggle.
 
 El ZIP de código coloca `pyproject.toml` en la raíz. Esto evita el error anterior en el que el notebook extraía una carpeta adicional y después no encontraba el repositorio.
 
 ## 3. Actualizar el dataset privado de código
 
-En Kaggle abra el dataset privado `sarahvasquez97/fpsd-cnn-reassessment-code` y cree una versión nueva con `fpsd-cnn-reassessment-code-v7.zip`.
+En Kaggle abra el dataset privado `sarahvasquez97/fpsd-cnn-reassessment-code` y cree una versión nueva con `fpsd-cnn-reassessment-code-v8.zip`.
 
 No descomprima ni reorganice manualmente el ZIP. El paquete contiene:
 
@@ -104,7 +104,10 @@ Use `estimated_hours_full_seed` para decidir el tamaño de cada versión. Si `fi
 - Benchmark GPU: notebook `03_train_week2_kaggle`, versión 2, ejecución `361550229`, exitosa en 164.4 s con Tesla T4.
 - Estimación LOSO AD–CN, semilla completa: 2.0904 h; `fits_9h_with_margin=true`.
 - Estimación LOSO CN–FTD, semilla completa: 1.2808 h; `fits_9h_with_margin=true`.
-- LOSO AD–CN semilla 2026, folds `[0, 65)`: versión 3, ejecución `361551285`, iniciada con GPU T4 x2.
+- LOSO AD–CN semilla 2026, folds `[0, 65)`: versión 3, ejecución `361551285`, completó los 65 entrenamientos en 7,189.35 s de GPU. Kaggle marcó la versión como error porque la agregación final intentó ordenar el objeto estructurado `fold`; no se perdió ningún fold.
+- Los artefactos de los 65 folds se descargaron y la agregación se reconstruyó con 65 filas. Resultado LOSO por sujeto: accuracy 76.92%, balanced accuracy 77.16% y ROC AUC 84.29% sobre 65 sujetos. El detalle auditable está en `results/week2/`.
+- La corrección de agregación está en el commit `7a79e8c` y en `fpsd-cnn-reassessment-code-v8.zip`. La prueba de regresión acepta tanto manifiestos estructurados como el formato plano anterior.
+- LOSO CN–FTD semilla 2026, folds `[0, 52)`: versión 4 lanzada con el paquete v8 y GPU T4; consulte su estado antes de declarar resultados.
 
 La ejecución automatizada actual comienza por LOSO con una sola semilla, tal como se aprobó. Las etapas de holdout y grouped5 siguen formando parte de la matriz completa, pero sus resultados no deben declararse terminados hasta que existan versiones exitosas y artefactos descargados.
 
@@ -234,7 +237,7 @@ No declare resultados finales hasta comprobar:
 
 ### No se encuentra `pyproject.toml`
 
-Actualice el dataset privado con `fpsd-cnn-reassessment-code-v7.zip`. El notebook selecciona de forma natural la carpeta o ZIP con el número de versión más alto y el paquete tiene el repositorio en la raíz.
+Actualice el dataset privado con `fpsd-cnn-reassessment-code-v8.zip`. El notebook selecciona de forma natural la carpeta o ZIP con el número de versión más alto y el paquete tiene el repositorio en la raíz.
 
 ### Se encuentran varios bundles de características
 
@@ -254,4 +257,4 @@ No mezcle resultados producidos con distintos bundles, código, semillas o confi
 
 ## 12. Evidencia de implementación
 
-Antes de empaquetar se ejecutaron 18 pruebas correctamente; una prueba dependiente de GPU quedó omitida localmente de forma esperada. El entrenamiento científico permanece reservado para Kaggle.
+Antes de empaquetar la implementación inicial se ejecutaron 18 pruebas correctamente; una prueba dependiente de GPU quedó omitida localmente de forma esperada. Después de detectar el fallo de agregación se añadieron dos pruebas de regresión y se verificaron junto con las pruebas de reproducibilidad (4 correctas). El entrenamiento científico se ejecuta exclusivamente en Kaggle.

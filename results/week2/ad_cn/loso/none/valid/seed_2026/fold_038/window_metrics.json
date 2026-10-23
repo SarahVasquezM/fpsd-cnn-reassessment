@@ -1,0 +1,30 @@
+{
+  "accuracy": 0.8117647058823529,
+  "balanced_accuracy": 0.8117647058823529,
+  "confusion_matrix": [
+    [
+      138,
+      32
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "CN",
+    "AD"
+  ],
+  "f1_AD": 0.0,
+  "f1_positive": 0.0,
+  "loss": 0.426565865909352,
+  "macro_f1": 0.44805194805194803,
+  "mcc": 0.0,
+  "n": 170,
+  "pr_auc": null,
+  "roc_auc": null,
+  "sensitivity_AD": NaN,
+  "sensitivity_positive": NaN,
+  "specificity_CN": 0.8117647058823529,
+  "specificity_negative": 0.8117647058823529
+}
