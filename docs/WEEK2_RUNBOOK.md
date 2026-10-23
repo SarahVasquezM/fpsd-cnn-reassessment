@@ -19,13 +19,13 @@ El modelo, los 95 rasgos FPSD, las ventanas de 5 s, RMSprop, `learning_rate=0.00
 
 1. `notebooks/02_prepare_week2_features_kaggle.ipynb`: prepara los 88 sujetos con CPU.
 2. `notebooks/03_train_week2_kaggle.ipynb`: hace el benchmark y los entrenamientos con GPU.
-3. `fpsd-cnn-reassessment-code-v6.zip`: paquete de código para actualizar el dataset privado de Kaggle.
+3. `fpsd-cnn-reassessment-code-v7.zip`: paquete de código para actualizar el dataset privado de Kaggle.
 
 El ZIP de código coloca `pyproject.toml` en la raíz. Esto evita el error anterior en el que el notebook extraía una carpeta adicional y después no encontraba el repositorio.
 
 ## 3. Actualizar el dataset privado de código
 
-En Kaggle abra el dataset privado `sarahvasquez97/fpsd-cnn-reassessment-code` y cree una versión nueva con `fpsd-cnn-reassessment-code-v6.zip`.
+En Kaggle abra el dataset privado `sarahvasquez97/fpsd-cnn-reassessment-code` y cree una versión nueva con `fpsd-cnn-reassessment-code-v7.zip`.
 
 No descomprima ni reorganice manualmente el ZIP. El paquete contiene:
 
@@ -69,6 +69,8 @@ fpsd-paper95-all-features
 
 No modifique archivos dentro del bundle.
 
+También es válido conectar directamente el output exitoso del notebook 02 como **Notebook Output** del notebook 03. Esta fue la ruta usada en la ejecución auditada del 23 de octubre de 2026; evita duplicar el bundle y conserva la versión exacta de código que produjo las características.
+
 ## 5. Configurar el notebook de entrenamiento
 
 1. Importe `03_train_week2_kaggle.ipynb`.
@@ -95,6 +97,16 @@ benchmark_cn_ftd_loso_none.json
 ```
 
 Use `estimated_hours_full_seed` para decidir el tamaño de cada versión. Si `fits_9h_with_margin` es `false`, divida LOSO en rangos más pequeños.
+
+### Ejecuciones auditadas del 23 de octubre de 2026
+
+- Preparación de características: notebook `02_prepare_week2_features_kaggle_fixed`, versión 2, ejecución `361545939`, exitosa en 334.9 s; produjo 66 archivos para 88 sujetos.
+- Benchmark GPU: notebook `03_train_week2_kaggle`, versión 2, ejecución `361550229`, exitosa en 164.4 s con Tesla T4.
+- Estimación LOSO AD–CN, semilla completa: 2.0904 h; `fits_9h_with_margin=true`.
+- Estimación LOSO CN–FTD, semilla completa: 1.2808 h; `fits_9h_with_margin=true`.
+- LOSO AD–CN semilla 2026, folds `[0, 65)`: versión 3, ejecución `361551285`, iniciada con GPU T4 x2.
+
+La ejecución automatizada actual comienza por LOSO con una sola semilla, tal como se aprobó. Las etapas de holdout y grouped5 siguen formando parte de la matriz completa, pero sus resultados no deben declararse terminados hasta que existan versiones exitosas y artefactos descargados.
 
 ## 6. Orden exacto de ejecución
 
@@ -222,7 +234,7 @@ No declare resultados finales hasta comprobar:
 
 ### No se encuentra `pyproject.toml`
 
-Actualice el dataset privado con `fpsd-cnn-reassessment-code-v6.zip`. El ZIP nuevo tiene el repositorio en la raíz.
+Actualice el dataset privado con `fpsd-cnn-reassessment-code-v7.zip`. El notebook selecciona de forma natural la carpeta o ZIP con el número de versión más alto y el paquete tiene el repositorio en la raíz.
 
 ### Se encuentran varios bundles de características
 
