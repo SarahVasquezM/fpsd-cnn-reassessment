@@ -111,8 +111,11 @@ Use `estimated_hours_full_seed` para decidir el tamaño de cada versión. Si `fi
 - Matriz grouped5 semilla 2026: versión 5, ejecución `362686497`, exitosa en 36 minutos con Tesla T4. Completó 20/20 entrenamientos: ambas tareas con `none` y `subject_class`. El tiempo acumulado de entrenamiento fue 1,650.52 s.
 - AD–CN grouped5: sin balanceo obtuvo accuracy 80.00% y balanced accuracy 80.27%; con `subject_class`, 80.00% y 80.60%.
 - CN–FTD grouped5: sin balanceo obtuvo accuracy 71.15% y balanced accuracy 70.54%; con `subject_class`, 71.15% y 71.44%.
+- Holdout publicado CN–FTD: versión 6, ejecución `362696458`, exitosa en 1,064.3 s con Tesla T4. Las 21 pruebas pasaron y se completaron 6/6 entrenamientos: protocolos `forensic` y `valid` para las semillas 2026, 2027 y 2028.
+- En la réplica forense, la accuracy por ventana fue 76.26%, 76.88% y 74.70%; media 75.95% ± 1.12 puntos porcentuales. La media por sujeto fue 80.39%.
+- En el protocolo válido, la accuracy por ventana fue 67.21%, 70.37% y 69.86%; media 69.15% ± 1.70 puntos porcentuales. La media por sujeto fue 74.51%.
 
-Los resultados LOSO y grouped5 de la semilla 2026 ya están descargados y auditados en `results/week2/`. El holdout CN–FTD y las semillas confirmatorias 2027 y 2028 siguen pendientes; no deben declararse terminados.
+Los resultados LOSO y grouped5 de la semilla 2026 y el holdout CN–FTD de tres semillas ya están descargados y auditados en `results/week2/`. Siguen pendientes las semillas confirmatorias 2027 y 2028 para grouped5; no deben declararse terminadas.
 
 ## 6. Orden exacto de ejecución
 
@@ -222,6 +225,8 @@ El artículo reporta exactitud **por ventana**:
 
 El archivo `article_comparison.csv` usa esa misma unidad. El 93.94% de semana 1 es una métrica **por sujeto** y no debe presentarse como equivalente al 88.36% del artículo.
 
+Para CN–FTD, la comparación descriptiva más cercana al 82.22% del artículo es la media forense de **75.95% ± 1.12 pp por ventana**, 6.27 puntos por debajo. Se denomina forense porque reproduce la selección del checkpoint observando el test; por ello conserva sesgo de selección. El protocolo válido mantiene el test fuera de la selección y obtuvo **69.15% ± 1.70 pp**, pero no replica exactamente el mecanismo publicado.
+
 Las métricas agrupadas y LOSO evalúan generalización entre sujetos y responden una pregunta distinta; deben presentarse por separado.
 
 ## 10. Cuándo una ejecución está completa
@@ -260,4 +265,4 @@ No mezcle resultados producidos con distintos bundles, código, semillas o confi
 
 ## 12. Evidencia de implementación
 
-Antes de empaquetar la implementación inicial se ejecutaron 18 pruebas correctamente; una prueba dependiente de GPU quedó omitida localmente de forma esperada. Después de detectar el fallo de agregación se añadieron dos pruebas de regresión y se verificaron junto con las pruebas de reproducibilidad (4 correctas). El entrenamiento científico se ejecuta exclusivamente en Kaggle.
+Antes de empaquetar la implementación inicial se ejecutaron 18 pruebas correctamente; una prueba dependiente de GPU quedó omitida localmente de forma esperada. Después de detectar el fallo de agregación se añadieron dos pruebas de regresión. En la ejecución auditada del holdout, Kaggle ejecutó las 21 pruebas correctamente antes de entrenar. El entrenamiento científico se ejecuta exclusivamente en Kaggle.

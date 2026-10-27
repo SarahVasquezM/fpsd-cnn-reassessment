@@ -1,0 +1,50 @@
+{
+  "accuracy": {
+    "estimate": 0.8235294117647058,
+    "lower_95": 0.6470588235294118,
+    "upper_95": 1.0,
+    "valid_resamples": 10000
+  },
+  "balanced_accuracy": {
+    "estimate": 0.8263888888888888,
+    "lower_95": 0.6308928571428571,
+    "upper_95": 1.0,
+    "valid_resamples": 10000
+  },
+  "macro_f1": {
+    "estimate": 0.8235294117647058,
+    "lower_95": 0.6136363636363636,
+    "upper_95": 1.0,
+    "valid_resamples": 10000
+  },
+  "mcc": {
+    "estimate": 0.6527777777777778,
+    "lower_95": 0.24688535993934707,
+    "upper_95": 1.0,
+    "valid_resamples": 10000
+  },
+  "pr_auc": {
+    "estimate": 0.8311011904761905,
+    "lower_95": 0.5496584467120182,
+    "upper_95": 1.0,
+    "valid_resamples": 10000
+  },
+  "roc_auc": {
+    "estimate": 0.8333333333333334,
+    "lower_95": 0.5714285714285714,
+    "upper_95": 1.0,
+    "valid_resamples": 10000
+  },
+  "sensitivity_positive": {
+    "estimate": 0.875,
+    "lower_95": 0.6,
+    "upper_95": 1.0,
+    "valid_resamples": 10000
+  },
+  "specificity_negative": {
+    "estimate": 0.7777777777777778,
+    "lower_95": 0.5,
+    "upper_95": 1.0,
+    "valid_resamples": 10000
+  }
+}

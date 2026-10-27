@@ -1,3 +1,9 @@
 task,source,protocol,seed,unit,accuracy,directly_comparable_to_article,note
 ad_cn,article,published_preprocessed,,window,0.8836,True,"Li et al. (2026), preprocessed AD-CN."
 cn_ftd,article,published_preprocessed,,window,0.8222,True,"Li et al. (2026), preprocessed CN-FTD."
+cn_ftd,reassessment,forensic,2026.0,window,0.7625730994152047,True,Same fixed published holdout; forensic selection reproduces test-inspected checkpointing.
+cn_ftd,reassessment,forensic,2027.0,window,0.7688109161793373,True,Same fixed published holdout; forensic selection reproduces test-inspected checkpointing.
+cn_ftd,reassessment,forensic,2028.0,window,0.7469785575048733,True,Same fixed published holdout; forensic selection reproduces test-inspected checkpointing.
+cn_ftd,reassessment,valid,2026.0,window,0.6721247563352827,False,Same fixed published holdout; checkpoint selected with an internal validation split and test evaluated once.
+cn_ftd,reassessment,valid,2027.0,window,0.7037037037037037,False,Same fixed published holdout; checkpoint selected with an internal validation split and test evaluated once.
+cn_ftd,reassessment,valid,2028.0,window,0.698635477582846,False,Same fixed published holdout; checkpoint selected with an internal validation split and test evaluated once.

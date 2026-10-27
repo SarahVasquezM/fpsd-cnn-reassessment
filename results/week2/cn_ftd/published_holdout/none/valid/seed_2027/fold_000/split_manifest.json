@@ -1,0 +1,203 @@
+{
+  "balance": "none",
+  "config": {
+    "balance": {
+      "description": "subject_class equalizes total sampling mass per class and per subject inside each class; validation/test are unchanged",
+      "policies": [
+        "none",
+        "subject_class"
+      ]
+    },
+    "evaluation": {
+      "bootstrap_resamples": 10000,
+      "grouped_folds": 5,
+      "grouped_seed": 2026,
+      "primary_unit": "subject",
+      "subject_aggregation": "mean_positive_probability",
+      "threshold": 0.5
+    },
+    "feature_config": "configs/features/paper95.yaml",
+    "kaggle": {
+      "benchmark_epochs": 10,
+      "benchmark_folds": 5,
+      "output_dir": "/kaggle/working/week2_results",
+      "safe_budget_hours": 9,
+      "session_budget_hours": 10
+    },
+    "model_config": "configs/models/fpsd_cnn_512.yaml",
+    "name": "week2_subject_evaluation",
+    "published_preprocessed_window_accuracy": {
+      "ad_cn": 0.8836,
+      "cn_ftd": 0.8222
+    },
+    "published_splits": {
+      "ad_cn": "splits/original_holdout.json",
+      "cn_ftd": "splits/published_holdout_cn_ftd.json"
+    },
+    "task_counts": {
+      "ad_cn": {
+        "AD": 36,
+        "CN": 29,
+        "total": 65
+      },
+      "cn_ftd": {
+        "CN": 29,
+        "FTD": 23,
+        "total": 52
+      }
+    },
+    "training": {
+      "batch_size": 64,
+      "deterministic": true,
+      "learning_rate": 0.0005,
+      "loss": "cross_entropy",
+      "max_epochs": 100,
+      "optimizer": "RMSprop",
+      "seeds": [
+        2026,
+        2027,
+        2028
+      ],
+      "validation_fraction_subjects": 0.2,
+      "validation_seed": 2026
+    }
+  },
+  "evaluation": "published_holdout",
+  "feature_manifest_sha256": "b681e0c239f724928dde1ec557e4a057991d12417dc6c9a209c0ef4b112d7dfb",
+  "fit_count": 28,
+  "fit_subjects": [
+    "sub-039",
+    "sub-041",
+    "sub-043",
+    "sub-044",
+    "sub-045",
+    "sub-048",
+    "sub-049",
+    "sub-050",
+    "sub-052",
+    "sub-053",
+    "sub-055",
+    "sub-058",
+    "sub-059",
+    "sub-061",
+    "sub-063",
+    "sub-064",
+    "sub-070",
+    "sub-071",
+    "sub-075",
+    "sub-076",
+    "sub-077",
+    "sub-078",
+    "sub-080",
+    "sub-082",
+    "sub-083",
+    "sub-086",
+    "sub-087",
+    "sub-088"
+  ],
+  "fold": {
+    "fold": 0,
+    "published_split_name": "published_fixed_subject_holdout_cn_ftd",
+    "test_counts": {
+      "CN": 9,
+      "FTD": 8
+    },
+    "test_subjects": [
+      "sub-037",
+      "sub-038",
+      "sub-042",
+      "sub-046",
+      "sub-051",
+      "sub-054",
+      "sub-056",
+      "sub-060",
+      "sub-065",
+      "sub-066",
+      "sub-067",
+      "sub-068",
+      "sub-073",
+      "sub-079",
+      "sub-081",
+      "sub-084",
+      "sub-085"
+    ],
+    "train_counts": {
+      "CN": 20,
+      "FTD": 15
+    },
+    "train_subjects": [
+      "sub-039",
+      "sub-040",
+      "sub-041",
+      "sub-043",
+      "sub-044",
+      "sub-045",
+      "sub-047",
+      "sub-048",
+      "sub-049",
+      "sub-050",
+      "sub-052",
+      "sub-053",
+      "sub-055",
+      "sub-057",
+      "sub-058",
+      "sub-059",
+      "sub-061",
+      "sub-062",
+      "sub-063",
+      "sub-064",
+      "sub-069",
+      "sub-070",
+      "sub-071",
+      "sub-072",
+      "sub-074",
+      "sub-075",
+      "sub-076",
+      "sub-077",
+      "sub-078",
+      "sub-080",
+      "sub-082",
+      "sub-083",
+      "sub-086",
+      "sub-087",
+      "sub-088"
+    ]
+  },
+  "forensic_test_selected": false,
+  "outer_train_count": 35,
+  "protocol": "valid",
+  "seed": 2027,
+  "signature": "5ca511df859098e98035965d1b464ffe98beb4c21324a829a83d3645bb91e727",
+  "source_tree_sha256": "6b36a9440141b2499a4354f77a1f311c3aca282a028c7b1ef31bbbd555a75901",
+  "task": "cn_ftd",
+  "test_count": 17,
+  "test_subjects": [
+    "sub-037",
+    "sub-038",
+    "sub-042",
+    "sub-046",
+    "sub-051",
+    "sub-054",
+    "sub-056",
+    "sub-060",
+    "sub-065",
+    "sub-066",
+    "sub-067",
+    "sub-068",
+    "sub-073",
+    "sub-079",
+    "sub-081",
+    "sub-084",
+    "sub-085"
+  ],
+  "validation_count": 7,
+  "validation_subjects": [
+    "sub-040",
+    "sub-047",
+    "sub-057",
+    "sub-062",
+    "sub-069",
+    "sub-072",
+    "sub-074"
+  ]
+}

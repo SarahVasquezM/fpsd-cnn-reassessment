@@ -1,0 +1,55 @@
+{
+  "task": "cn_ftd",
+  "evaluation": "published_holdout",
+  "balance": "none",
+  "seeds": [2026, 2027, 2028],
+  "kaggle_notebook": "sarahvasquez97/03-train-week2-kaggle",
+  "kaggle_version": 6,
+  "kaggle_script_version_id": 362696458,
+  "kaggle_status": "complete",
+  "notebook_runtime_seconds": 1064.3,
+  "gpu_name": "Tesla T4",
+  "tests_passed": 21,
+  "completed_training_runs": 6,
+  "expected_training_runs": 6,
+  "training_runtime_seconds": 498.685064727,
+  "training_source_commit": "UNCOMMITTED",
+  "training_source_tree_sha256": "6b36a9440141b2499a4354f77a1f311c3aca282a028c7b1ef31bbbd555a75901",
+  "split": {
+    "train_subjects": 35,
+    "train_counts": {"CN": 20, "FTD": 15},
+    "test_subjects": 17,
+    "test_counts": {"CN": 9, "FTD": 8}
+  },
+  "article_window_accuracy": 0.8222,
+  "protocols": [
+    {
+      "name": "forensic",
+      "checkpoint_selection": "test",
+      "directly_comparable_to_article": true,
+      "window_accuracy_mean": 0.759454191033138,
+      "window_accuracy_sample_sd": 0.0112453840950144,
+      "delta_vs_article_percentage_points": -6.2745808966862,
+      "subject_accuracy_mean": 0.803921568627451,
+      "subject_accuracy_sample_sd": 0.0339617805405662
+    },
+    {
+      "name": "valid",
+      "checkpoint_selection": "internal_validation",
+      "directly_comparable_to_article": false,
+      "window_accuracy_mean": 0.691487979207277,
+      "window_accuracy_sample_sd": 0.0169594377558911,
+      "delta_vs_article_percentage_points": -13.0712020792723,
+      "subject_accuracy_mean": 0.745098039215686,
+      "subject_accuracy_sample_sd": 0.0679235610811324
+    }
+  ],
+  "downloaded_bundle": {
+    "filename": "week2_github_results_bundle.zip",
+    "sha256": "ebff8df263251d97bb32b424869bc683cfc53268a1420a76ee12bd198e599886",
+    "reduced_bundle": true,
+    "included_files_checked_against_sha256sums": 71,
+    "included_file_mismatches": 0,
+    "omitted_full_bundle_entries": 24
+  }
+}
