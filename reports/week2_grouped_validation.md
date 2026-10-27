@@ -47,7 +47,7 @@ Los intervalos se calcularon con 10,000 remuestreos de las predicciones ya obten
 
 ### Lectura para la presentación
 
-- En AD–CN, grouped5 sin balanceo superó a LOSO en 3.45 puntos de balanced accuracy. El balanceo añadió sólo 0.34 puntos y dejó el accuracy en 80.00%.
+- En AD–CN, grouped5 sin balanceo superó a LOSO en 3.11 puntos de balanced accuracy. El balanceo añadió sólo 0.34 puntos y dejó el accuracy en 80.00%.
 - En CN–FTD, grouped5 sin balanceo quedó 6.07 puntos por debajo de LOSO en balanced accuracy. El balanceo recuperó 0.90 puntos, pero dejó el accuracy en 71.15% y redujo el ROC AUC.
 - El balanceo no produjo una mejora grande ni uniforme. Con una sola semilla, el resultado responsable es describirlo como una señal pequeña e inconclusa, no como una mejora demostrada.
 - grouped5 y LOSO son evaluaciones separadas. En grouped5 se entrenan cinco modelos y cada uno prueba aproximadamente una quinta parte de los sujetos. En LOSO se entrena un modelo por sujeto y cada modelo prueba exactamente a una persona. No se ejecutó LOSO dentro de cada fold.
