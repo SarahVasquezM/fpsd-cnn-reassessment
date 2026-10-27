@@ -1,0 +1,21 @@
+{
+  "task": "cn_ftd",
+  "evaluation": "loso",
+  "balance": "none",
+  "seed": 2026,
+  "kaggle_notebook": "sarahvasquez97/03-train-week2-kaggle",
+  "kaggle_version": 4,
+  "kaggle_script_version_id": 361617298,
+  "kaggle_status": "complete",
+  "completed_folds": 52,
+  "expected_folds": 52,
+  "training_runtime_seconds": 4354.62,
+  "training_source_commit": "UNCOMMITTED",
+  "training_source_tree_sha256": "6b36a9440141b2499a4354f77a1f311c3aca282a028c7b1ef31bbbd555a75901",
+  "subject_count": 52,
+  "subject_accuracy": 0.7692307692307693,
+  "subject_balanced_accuracy": 0.7661169415292354,
+  "subject_roc_auc": 0.8110944527736131,
+  "window_count": 8112,
+  "window_accuracy": 0.6892258382642998
+}

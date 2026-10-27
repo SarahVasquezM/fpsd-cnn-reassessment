@@ -41,7 +41,7 @@ No se redistribuye el upstream ni los datos. Sus hashes, atribución y discrepan
 4. Ejecute “Save & Run All”. El notebook verifica hashes, corre las pruebas, hace el benchmark y sólo después entrena.
 5. Descargue `github_results_bundle.zip` e incorpórelo siguiendo `docs/KAGGLE_RUNBOOK.md`.
 
-Para semana 2, use `02_prepare_week2_features_kaggle.ipynb` y después `03_train_week2_kaggle.ipynb`. El segundo notebook comienza con un benchmark LOSO de cinco folds y permite reanudar rangos de folds sin mezclar configuraciones.
+Para semana 2, use `02_prepare_week2_features_kaggle.ipynb` y después `03_train_week2_kaggle.ipynb`. Su configuración auditada `grouped5_matrix` ejecuta las cuatro comparaciones grouped5 con la semilla 2026; el modo `run` permite procesar otros protocolos o rangos de folds sin mezclar configuraciones. Consulte resultados y pendientes en `reports/week2_grouped_validation.md`.
 
 ## Reglas científicas
 

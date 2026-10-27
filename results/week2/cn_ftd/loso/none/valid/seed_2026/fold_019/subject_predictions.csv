@@ -1,0 +1,2 @@
+subject_id,y_true,p_positive,n_windows,p_FTD,prediction,task,evaluation,balance,protocol,seed,fold
+sub-056,0,0.24659330892144324,158,0.24659330892144324,0,cn_ftd,loso,none,valid,2026,

@@ -30,14 +30,37 @@ La validación interna se obtiene únicamente de los sujetos del entrenamiento e
 
 `subject_class` asigna a cada ventana un peso inverso al número de ventanas de su sujeto y al número de sujetos de su clase. Así, cada clase tiene la misma masa total de muestreo y todos los sujetos de una clase tienen la misma masa. La función de pérdida continúa siendo entropía cruzada sin ponderar. Validación y prueba nunca se remuestrean.
 
-## Orden de ejecución
+## Resultados ejecutados con la semilla 2026
 
-1. Generar `fpsd_features_all_bundle.zip` con `02_prepare_week2_features_kaggle.ipynb` y publicarlo como dataset privado `fpsd-paper95-all-features`.
-2. Ejecutar el benchmark de cinco folds LOSO para ambas tareas desde `03_train_week2_kaggle.ipynb`.
-3. Ejecutar el holdout CN–FTD, primero forense y después válido, con semillas 2026, 2027 y 2028.
-4. Ejecutar cinco folds para ambas tareas, con `none` y `subject_class`, en las tres semillas.
-5. Ejecutar LOSO sin balanceo con una sola semilla, 2026. Dividirlo en rangos de folds si el benchmark estima más de nueve horas.
-6. Ejecutar LOSO balanceado sólo si los cinco folds muestran una mejora consistente.
+Todas las cifras de esta tabla son **por sujeto**. Cada sujeto aparece exactamente una vez en las predicciones fuera de muestra que se agregan para calcular las métricas.
+
+| Tarea | Evaluación | Balance | Accuracy | Balanced accuracy | ROC AUC | IC95% bootstrap de accuracy |
+|---|---|---|---:|---:|---:|---:|
+| AD–CN | LOSO | ninguno | 76.92% | 77.16% | 84.29% | 66.15–86.15% |
+| AD–CN | grouped5 | ninguno | 80.00% | 80.27% | 86.69% | 69.23–89.23% |
+| AD–CN | grouped5 | `subject_class` | 80.00% | 80.60% | 87.16% | 69.23–89.23% |
+| CN–FTD | LOSO | ninguno | 76.92% | 76.61% | 81.11% | 65.38–88.46% |
+| CN–FTD | grouped5 | ninguno | 71.15% | 70.54% | 78.71% | 57.69–82.69% |
+| CN–FTD | grouped5 | `subject_class` | 71.15% | 71.44% | 75.71% | 57.69–82.69% |
+
+Los intervalos se calcularon con 10,000 remuestreos de las predicciones ya obtenidas por sujeto; el bootstrap no vuelve a entrenar ni a ejecutar el modelo.
+
+### Lectura para la presentación
+
+- En AD–CN, grouped5 sin balanceo superó a LOSO en 3.45 puntos de balanced accuracy. El balanceo añadió sólo 0.34 puntos y dejó el accuracy en 80.00%.
+- En CN–FTD, grouped5 sin balanceo quedó 6.07 puntos por debajo de LOSO en balanced accuracy. El balanceo recuperó 0.90 puntos, pero dejó el accuracy en 71.15% y redujo el ROC AUC.
+- El balanceo no produjo una mejora grande ni uniforme. Con una sola semilla, el resultado responsable es describirlo como una señal pequeña e inconclusa, no como una mejora demostrada.
+- grouped5 y LOSO son evaluaciones separadas. En grouped5 se entrenan cinco modelos y cada uno prueba aproximadamente una quinta parte de los sujetos. En LOSO se entrena un modelo por sujeto y cada modelo prueba exactamente a una persona. No se ejecutó LOSO dentro de cada fold.
+- Los intervalos son amplios y se solapan. Por eso no hay evidencia suficiente para declarar que grouped5 sea intrínsecamente mejor que LOSO; la diferencia observada depende de la tarea y de cómo cambia el conjunto de entrenamiento en cada partición.
+
+## Ejecución auditada
+
+1. Características para los 88 sujetos: completadas.
+2. LOSO AD–CN sin balanceo, semilla 2026: 65/65 folds completos.
+3. LOSO CN–FTD sin balanceo, semilla 2026: 52/52 folds completos.
+4. grouped5, semilla 2026: 20/20 entrenamientos completos — ambas tareas, con y sin balanceo.
+5. Pendientes confirmatorios: semillas 2027 y 2028 y el holdout publicado CN–FTD.
+6. LOSO balanceado permanece condicionado a una mejora consistente en grouped5; los resultados actuales no satisfacen claramente ese criterio.
 
 ## Artefactos esperados
 
@@ -45,4 +68,4 @@ Cada fold conserva historial, predicciones por ventana y sujeto, métricas, mani
 
 ## Estado
 
-La implementación superó 18 pruebas locales; una prueba dependiente de GPU quedó omitida de forma esperada. Los resultados científicos de semana 2 permanecen pendientes hasta ejecutar los notebooks en Kaggle GPU; no se imputan ni anticipan cifras.
+La matriz grouped5 se ejecutó correctamente en el notebook privado `sarahvasquez97/03-train-week2-kaggle`, versión 5, ejecución `362686497`, con GPU Tesla T4. Kaggle informó estado exitoso y 36 minutos de ejecución total; los 20 entrenamientos acumularon 1,650.52 s. Los resultados anteriores son observaciones de una sola semilla y no deben presentarse como promedio multisemilla.

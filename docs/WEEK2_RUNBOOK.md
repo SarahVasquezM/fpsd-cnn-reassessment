@@ -107,9 +107,12 @@ Use `estimated_hours_full_seed` para decidir el tamaño de cada versión. Si `fi
 - LOSO AD–CN semilla 2026, folds `[0, 65)`: versión 3, ejecución `361551285`, completó los 65 entrenamientos en 7,189.35 s de GPU. Kaggle marcó la versión como error porque la agregación final intentó ordenar el objeto estructurado `fold`; no se perdió ningún fold.
 - Los artefactos de los 65 folds se descargaron y la agregación se reconstruyó con 65 filas. Resultado LOSO por sujeto: accuracy 76.92%, balanced accuracy 77.16% y ROC AUC 84.29% sobre 65 sujetos. El detalle auditable está en `results/week2/`.
 - La corrección de agregación está en el commit `7a79e8c` y en `fpsd-cnn-reassessment-code-v8.zip`. La prueba de regresión acepta tanto manifiestos estructurados como el formato plano anterior.
-- LOSO CN–FTD semilla 2026, folds `[0, 52)`: versión 4 lanzada con el paquete v8 y GPU T4; consulte su estado antes de declarar resultados.
+- LOSO CN–FTD semilla 2026, folds `[0, 52)`: versión 4, ejecución `361617298`, exitosa. Completó 52/52 folds en 4,354.62 s de GPU. Resultado por sujeto: accuracy 76.92%, balanced accuracy 76.61% y ROC AUC 81.11%.
+- Matriz grouped5 semilla 2026: versión 5, ejecución `362686497`, exitosa en 36 minutos con Tesla T4. Completó 20/20 entrenamientos: ambas tareas con `none` y `subject_class`. El tiempo acumulado de entrenamiento fue 1,650.52 s.
+- AD–CN grouped5: sin balanceo obtuvo accuracy 80.00% y balanced accuracy 80.27%; con `subject_class`, 80.00% y 80.60%.
+- CN–FTD grouped5: sin balanceo obtuvo accuracy 71.15% y balanced accuracy 70.54%; con `subject_class`, 71.15% y 71.44%.
 
-La ejecución automatizada actual comienza por LOSO con una sola semilla, tal como se aprobó. Las etapas de holdout y grouped5 siguen formando parte de la matriz completa, pero sus resultados no deben declararse terminados hasta que existan versiones exitosas y artefactos descargados.
+Los resultados LOSO y grouped5 de la semilla 2026 ya están descargados y auditados en `results/week2/`. El holdout CN–FTD y las semillas confirmatorias 2027 y 2028 siguen pendientes; no deben declararse terminados.
 
 ## 6. Orden exacto de ejecución
 
@@ -137,7 +140,7 @@ El protocolo automático ejecuta dos variantes:
 
 ### Etapa B — validación agrupada de cinco folds
 
-Ejecute las cuatro combinaciones siguientes. En todas use `SEEDS = [2026, 2027, 2028]`, `FOLD_START = 0` y `FOLD_STOP = 5`.
+Ejecute las cuatro combinaciones siguientes. La primera comparación auditada usó `SEEDS = [2026]`, `FOLD_START = 0` y `FOLD_STOP = 5`. Para confirmar estabilidad, repita sin cambiar otros parámetros con las semillas 2027 y 2028.
 
 | Ejecución | `TASK` | `EVALUATION` | `BALANCE` |
 |---|---|---|---|

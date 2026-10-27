@@ -1,0 +1,56 @@
+{
+  "evaluation": "grouped5",
+  "seed": 2026,
+  "kaggle_notebook": "sarahvasquez97/03-train-week2-kaggle",
+  "kaggle_version": 5,
+  "kaggle_script_version_id": 362686497,
+  "kaggle_status": "complete",
+  "notebook_runtime_minutes": 36,
+  "completed_training_folds": 20,
+  "expected_training_folds": 20,
+  "training_runtime_seconds": 1650.52,
+  "training_source_commit": "UNCOMMITTED",
+  "training_source_tree_sha256": "6b36a9440141b2499a4354f77a1f311c3aca282a028c7b1ef31bbbd555a75901",
+  "conditions": [
+    {
+      "task": "ad_cn",
+      "balance": "none",
+      "folds": 5,
+      "training_runtime_seconds": 479.83,
+      "subject_count": 65,
+      "subject_accuracy": 0.8,
+      "subject_balanced_accuracy": 0.8026819923371648,
+      "subject_roc_auc": 0.8668582375478927
+    },
+    {
+      "task": "ad_cn",
+      "balance": "subject_class",
+      "folds": 5,
+      "training_runtime_seconds": 462.96,
+      "subject_count": 65,
+      "subject_accuracy": 0.8,
+      "subject_balanced_accuracy": 0.8060344827586207,
+      "subject_roc_auc": 0.8716475095785441
+    },
+    {
+      "task": "cn_ftd",
+      "balance": "none",
+      "folds": 5,
+      "training_runtime_seconds": 348.13,
+      "subject_count": 52,
+      "subject_accuracy": 0.7115384615384616,
+      "subject_balanced_accuracy": 0.7053973013493253,
+      "subject_roc_auc": 0.7871064467766117
+    },
+    {
+      "task": "cn_ftd",
+      "balance": "subject_class",
+      "folds": 5,
+      "training_runtime_seconds": 359.59,
+      "subject_count": 52,
+      "subject_accuracy": 0.7115384615384616,
+      "subject_balanced_accuracy": 0.7143928035982009,
+      "subject_roc_auc": 0.7571214392803598
+    }
+  ]
+}

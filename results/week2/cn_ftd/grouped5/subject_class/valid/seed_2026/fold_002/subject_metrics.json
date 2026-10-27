@@ -1,0 +1,29 @@
+{
+  "accuracy": 0.7,
+  "balanced_accuracy": 0.75,
+  "confusion_matrix": [
+    [
+      3,
+      3
+    ],
+    [
+      0,
+      4
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "CN",
+    "FTD"
+  ],
+  "f1_FTD": 0.7272727272727273,
+  "f1_positive": 0.7272727272727273,
+  "macro_f1": 0.696969696969697,
+  "mcc": 0.5345224838248488,
+  "n": 10,
+  "pr_auc": 0.7928571428571428,
+  "roc_auc": 0.7916666666666666,
+  "sensitivity_FTD": 1.0,
+  "sensitivity_positive": 1.0,
+  "specificity_CN": 0.5,
+  "specificity_negative": 0.5
+}

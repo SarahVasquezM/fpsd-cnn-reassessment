@@ -1,0 +1,50 @@
+{
+  "accuracy": {
+    "estimate": 0.8,
+    "lower_95": 0.6923076923076923,
+    "upper_95": 0.8923076923076924,
+    "valid_resamples": 10000
+  },
+  "balanced_accuracy": {
+    "estimate": 0.8026819923371648,
+    "lower_95": 0.7021072796934866,
+    "upper_95": 0.894212523719165,
+    "valid_resamples": 10000
+  },
+  "macro_f1": {
+    "estimate": 0.799239724400095,
+    "lower_95": 0.6922348484848485,
+    "upper_95": 0.8913821914538076,
+    "valid_resamples": 10000
+  },
+  "mcc": {
+    "estimate": 0.6019145891619511,
+    "lower_95": 0.4015566135419672,
+    "upper_95": 0.7852162501801753,
+    "valid_resamples": 10000
+  },
+  "pr_auc": {
+    "estimate": 0.9106718612911296,
+    "lower_95": 0.8305291441332187,
+    "upper_95": 0.9663547051557511,
+    "valid_resamples": 10000
+  },
+  "roc_auc": {
+    "estimate": 0.8668582375478927,
+    "lower_95": 0.7693013210254589,
+    "upper_95": 0.9450769124168514,
+    "valid_resamples": 10000
+  },
+  "sensitivity_positive": {
+    "estimate": 0.7777777777777778,
+    "lower_95": 0.6363636363636364,
+    "upper_95": 0.90625,
+    "valid_resamples": 10000
+  },
+  "specificity_negative": {
+    "estimate": 0.8275862068965517,
+    "lower_95": 0.6774193548387096,
+    "upper_95": 0.96,
+    "valid_resamples": 10000
+  }
+}

@@ -1,0 +1,11 @@
+subject_id,y_true,p_positive,n_windows,p_FTD,prediction,task,evaluation,balance,protocol,seed,fold
+sub-037,0,0.23123277668510714,155,0.23123277668510714,0,cn_ftd,grouped5,subject_class,valid,2026,
+sub-038,0,0.34984393184121665,178,0.34984393184121665,0,cn_ftd,grouped5,subject_class,valid,2026,
+sub-039,0,0.17693072476498717,170,0.17693072476498717,0,cn_ftd,grouped5,subject_class,valid,2026,
+sub-054,0,0.12742083216694944,167,0.12742083216694944,0,cn_ftd,grouped5,subject_class,valid,2026,
+sub-058,0,0.6936904030130399,151,0.6936904030130399,1,cn_ftd,grouped5,subject_class,valid,2026,
+sub-059,0,0.6592752569040675,157,0.6592752569040675,1,cn_ftd,grouped5,subject_class,valid,2026,
+sub-069,1,0.5975166023039721,127,0.5975166023039721,1,cn_ftd,grouped5,subject_class,valid,2026,
+sub-070,1,0.39882410999975704,95,0.39882410999975704,0,cn_ftd,grouped5,subject_class,valid,2026,
+sub-074,1,0.5021378189682071,202,0.5021378189682071,1,cn_ftd,grouped5,subject_class,valid,2026,
+sub-086,1,0.2639719847563455,115,0.2639719847563455,0,cn_ftd,grouped5,subject_class,valid,2026,

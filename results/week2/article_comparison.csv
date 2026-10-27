@@ -1,0 +1,3 @@
+task,source,protocol,seed,unit,accuracy,directly_comparable_to_article,note
+ad_cn,article,published_preprocessed,,window,0.8836,True,"Li et al. (2026), preprocessed AD-CN."
+cn_ftd,article,published_preprocessed,,window,0.8222,True,"Li et al. (2026), preprocessed CN-FTD."
